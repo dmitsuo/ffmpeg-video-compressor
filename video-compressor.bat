@@ -18,6 +18,19 @@ if not exist "%FFMPEG_BIN%" (
     exit /b
 )
 
+REM Checks if there is already an instance of ffmpeg.exe running.
+set "programToCheck=ffmpeg.exe"
+
+for /f "tokens=*" %%a in ('tasklist ^| find /i "%programToCheck%"') do (
+    set "task=%%a"
+)
+
+if not "!task!"=="" (
+    ECHO An FFmpeg instance is already running. Exiting...
+    pause
+    exit /b
+)
+
 if not "%~1"=="" (
     set "source_dir=%~1"
 ) else (
@@ -30,18 +43,6 @@ if not exist "%source_dir%" (
   echo Source directory does not exist.
   pause
   exit /b
-)
-
-REM Checks if there is already an instance of ffmpeg.exe running.
-set "programToCheck=ffmpeg.exe"
-
-for /f "tokens=*" %%a in ('tasklist ^| find /i "%programToCheck%"') do (
-    set "task=%%a"
-)
-
-if not "!task!"=="" (
-    ECHO There is already a FFmpeg instance running. Exiting...
-    exit /b
 )
 
 REM Create a folder called "converted_videos" inside the source directory
