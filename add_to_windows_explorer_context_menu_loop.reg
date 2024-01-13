@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\CompressVideosDaviLoop]
+@="Compress Videos in this Folder - LOOP"
+
+[HKEY_CLASSES_ROOT\Directory\shell\CompressVideosDaviLoop\command]
+@="\"C:\\dev\\projetos\\ffmpeg-video-compressor\\loop.bat\" \"%1\""
