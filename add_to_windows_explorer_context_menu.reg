@@ -1,7 +1,0 @@
-Windows Registry Editor Version 5.00
-
-[HKEY_CLASSES_ROOT\Directory\shell\CompressVideosDavi]
-@="Compress Videos in this Folder"
-
-[HKEY_CLASSES_ROOT\Directory\shell\CompressVideosDavi\command]
-@="\"C:\\dev\\projetos\\ffmpeg-video-compressor\\video-compressor.bat\" \"%1\""
